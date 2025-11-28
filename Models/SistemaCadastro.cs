@@ -9,18 +9,44 @@ namespace SistemaCadastroPessoa.Models
     {
         private List<Pessoa> pessoas = new List<Pessoa>();
     
+    private string LerTexto(string menssagem)
+        {
+            string valor;
+
+            do
+            {
+                Console.WriteLine(menssagem);
+                valor = Console.ReadLine()!;
+
+                if (string.IsNullOrEmpty(valor))
+                    Console.WriteLine("Entrada inválida! Tente novamente.");
+            } 
+            while (string.IsNullOrEmpty(valor));
+            return valor;
+        }
+    private int LerInteiro(string menssagem)
+        {
+         int numero;
+         
+         while (true)
+         {
+            Console.WriteLine(menssagem);
+
+            if (int.TryParse(Console.ReadLine(), out numero) && numero > 0)
+                return numero;
+            
+            Console.WriteLine("Entrada inválida! Tente novamente.");     
+         }   
+        }
     public void CadastrarPessoa()
         {
             Pessoa p = new Pessoa();
 
-            Console.WriteLine("Digite o Id da Pessoa: ");
-            p.Id = int.Parse(Console.ReadLine()!);
+            p.Id = LerInteiro("Digite o seu Id: ");
 
-            Console.WriteLine("Digite o Nome da Pessoa: ");
-            p.Nome = Console.ReadLine()!;
+            p.Nome = LerTexto("Digite o seu Nome: ");
 
-            Console.WriteLine("Digite a Idade da Pessoa: ");
-            p.Idade = int.Parse(Console.ReadLine()!);
+            p.Idade = LerInteiro("Digite a sua Idade: ");
 
             Console.WriteLine("Digite o Email da Pessoa: ");
             p.Email = Console.ReadLine()!;
@@ -30,23 +56,23 @@ namespace SistemaCadastroPessoa.Models
             Console.ReadLine();
         }
     public void RemoverPessoa()
-    {
-        Console.WriteLine("Digite o Id da Pessoa a ser removida: ");
-        int id = int.Parse(Console.ReadLine()!);
+        {
+            Console.WriteLine("Digite o Id da Pessoa a ser removida: ");
+            int id = int.Parse(Console.ReadLine()!);
 
-        Pessoa? pessoaParaRemover = pessoas.FirstOrDefault(p => p.Id == id);
-        if (pessoaParaRemover == null)
-        {
-            Console.WriteLine("Pessoa não encontrada! Pressione Enter para continuar...");
-            Console.ReadLine();
+            Pessoa? pessoaParaRemover = pessoas.FirstOrDefault(p => p.Id == id);
+            if (pessoaParaRemover == null)
+            {
+                Console.WriteLine("Pessoa não encontrada! Pressione Enter para continuar...");
+                Console.ReadLine();
+            }
+            else
+            {
+                pessoas.Remove(pessoaParaRemover);
+                Console.WriteLine("Pessoa removida com sucesso! Pressione Enter para continuar...");
+                Console.ReadLine();
+            }
         }
-        else
-        {
-            pessoas.Remove(pessoaParaRemover);
-            Console.WriteLine("Pessoa removida com sucesso! Pressione Enter para continuar...");
-            Console.ReadLine();
-        }
-     }
     public void ListarPessoas()
         {
             if (pessoas.Any())
