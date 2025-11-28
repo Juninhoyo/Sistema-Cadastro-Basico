@@ -87,7 +87,7 @@ namespace SistemaCadastroPessoa.Models
                 Console.ReadLine();
             }
         }
-    public void ListarPessoas()
+    public void ListarPessoa()
         {
             if (pessoas.Any())
             {
@@ -105,5 +105,48 @@ namespace SistemaCadastroPessoa.Models
 
             }
         }
+    public void EditarPessoa()
+        {
+            int id = LerInteiro("Digite o Id da pessoa cadastrada para que possa ser editado: ");
+            Pessoa? p = pessoas.FirstOrDefault(p => p.Id == id);
+
+            if (p == null)
+            {
+                Console.WriteLine("Pessoa não encontrada! Pressione Enter para continuar...");
+                Console.ReadLine();
+                return;
+            }
+
+            Console.WriteLine("Digite o novo Nome (Enter para manter o atual): ");
+            string novoNome = Console.ReadLine()!;
+            if (!string.IsNullOrEmpty(novoNome))
+            {
+                p.Nome = novoNome;
+            }
+
+            Console.WriteLine("Digite a nova Idade (Enter para manter a atual): ");
+            string entrada = Console.ReadLine()!;
+            if (!string.IsNullOrEmpty(entrada))
+            {
+                if (int.TryParse(entrada, out int novaIdade) && novaIdade > 0)
+                {
+                    p.Idade = novaIdade;
+                }
+                else
+                {
+                    Console.WriteLine("Idade inválida! Mantendo a idade atual.");
+                }
+            }
+            
+            Console.WriteLine("Digite o novo Email (Enter para manter o atual): ");
+            string novoEmail = Console.ReadLine()!;
+            if (!string.IsNullOrEmpty(novoEmail))
+            {
+                p.Email = novoEmail;
+            }
+
+            Console.WriteLine("Pessoa editada com sucesso! Pressione Enter para continuar...");
+            Console.ReadLine();
+        }  
     }
 }

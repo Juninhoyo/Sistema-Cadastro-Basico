@@ -12,7 +12,8 @@ Console.Clear();
 Console.WriteLine(@"Menu
 1 - Cadastrar Pessoa
 2 - Remover Pessoa
-3 - Listar Pessoas
+3 - Editar Pessoa
+4 - Listar Pessoas
 0 - Sair
 Escolha uma opção: ");
 string? opcao = Console.ReadLine();
@@ -28,7 +29,11 @@ switch (opcao)
         break;
 
         case "3":
-        sistema.ListarPessoas();
+        sistema.EditarPessoa();
+        break;
+
+        case "4":
+        sistema.ListarPessoa();
         break;
 
         case "0":
