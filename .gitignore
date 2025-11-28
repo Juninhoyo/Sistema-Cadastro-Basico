@@ -1,0 +1,71 @@
+# ===== .NET / C# =====
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.mdb
+
+# Logs
+*.log
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Auto-generated files
+Generated\ Files/
+
+# Publish output
+publish/
+*.config
+
+# ===== Visual Studio =====
+.vs/
+.vscode/
+*.vcxproj.user
+*.dbmdl
+*.jfm
+
+# Backup files
+*.bak
+*.old
+*.orig
+
+# ===== NuGet =====
+*.nupkg
+packages/
+.nuget/
+
+# ===== Rider / JetBrains =====
+.idea/
+*.iml
+/.idea/
+*.DotSettings.user
+
+# ===== OS files =====
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+
+# Linux
+*~
+
+# ===== Temporary files =====
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# ===== Build =====
+project.lock.json
+project.fragment.lock.json
+
+# ===== ASP.NET files =====
+App_Data/

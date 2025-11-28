@@ -1,0 +1,14 @@
+J:\Csharpp\SistemaCadastroPessoa\bin\Debug\net10.0\SistemaCadastroPessoa.exe
+J:\Csharpp\SistemaCadastroPessoa\bin\Debug\net10.0\SistemaCadastroPessoa.deps.json
+J:\Csharpp\SistemaCadastroPessoa\bin\Debug\net10.0\SistemaCadastroPessoa.runtimeconfig.json
+J:\Csharpp\SistemaCadastroPessoa\bin\Debug\net10.0\SistemaCadastroPessoa.dll
+J:\Csharpp\SistemaCadastroPessoa\bin\Debug\net10.0\SistemaCadastroPessoa.pdb
+J:\Csharpp\SistemaCadastroPessoa\obj\Debug\net10.0\SistemaCadastroPessoa.GeneratedMSBuildEditorConfig.editorconfig
+J:\Csharpp\SistemaCadastroPessoa\obj\Debug\net10.0\SistemaCadastroPessoa.AssemblyInfoInputs.cache
+J:\Csharpp\SistemaCadastroPessoa\obj\Debug\net10.0\SistemaCadastroPessoa.AssemblyInfo.cs
+J:\Csharpp\SistemaCadastroPessoa\obj\Debug\net10.0\SistemaCadastroPessoa.csproj.CoreCompileInputs.cache
+J:\Csharpp\SistemaCadastroPessoa\obj\Debug\net10.0\SistemaCadastroPessoa.dll
+J:\Csharpp\SistemaCadastroPessoa\obj\Debug\net10.0\refint\SistemaCadastroPessoa.dll
+J:\Csharpp\SistemaCadastroPessoa\obj\Debug\net10.0\SistemaCadastroPessoa.pdb
+J:\Csharpp\SistemaCadastroPessoa\obj\Debug\net10.0\SistemaCadastroPessoa.genruntimeconfig.cache
+J:\Csharpp\SistemaCadastroPessoa\obj\Debug\net10.0\ref\SistemaCadastroPessoa.dll
