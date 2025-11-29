@@ -53,11 +53,19 @@ namespace SistemaCadastroPessoa.Models
             while (string.IsNullOrEmpty(email) || !email.Contains("@"));
             return email;
         }
+    private int GeradorId()
+        {
+            if (!pessoas.Any())
+                return 1;
+
+            return pessoas.Max(p => p.Id) + 1;
+        }
     public void CadastrarPessoa()
         {
             Pessoa p = new Pessoa();
 
-            p.Id = LerInteiro("Digite o seu Id: ");
+            p.Id = GeradorId();
+            Console.WriteLine($"O Id gerado para o seu cadastro é: {p.Id}");
 
             p.Nome = LerTexto("Digite o seu Nome: ");
 
