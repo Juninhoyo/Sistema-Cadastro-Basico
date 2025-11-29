@@ -101,7 +101,8 @@ namespace SistemaCadastroPessoa.Models
             {
                 foreach (var pessoa in pessoas)
                 {
-                    Console.WriteLine($"Id: {pessoa.Id}, Nome: {pessoa.Nome}, Idade: {pessoa.Idade}, Email: {pessoa.Email}");
+                    Console.WriteLine($"ID {pessoa.Id} | Nome {pessoa.Nome} | Idade {pessoa.Idade}\nEmail {pessoa.Email}");
+                    Console.WriteLine("---------------------------------------------");
                 }
                 Console.WriteLine("Pressione Enter para continuar...");
                 Console.ReadLine();
