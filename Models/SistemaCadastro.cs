@@ -2,13 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
+
 
 namespace SistemaCadastroPessoa.Models
 {
     public class SistemaCadastro
     {
         private List<Pessoa> pessoas = new List<Pessoa>();
-    
+        private const string ARQUIVO = "PessoasCadastradas.json";
+
+        public SistemaCadastro()
+        {
+            CarregarDados();
+        }
     private string LerTexto(string menssagem)
         {
             string valor;
@@ -60,6 +67,20 @@ namespace SistemaCadastroPessoa.Models
 
             return pessoas.Max(p => p.Id) + 1;
         }
+    private void SalvarDados()
+        {
+            string jsonString = JsonSerializer.Serialize(pessoas);
+            File.WriteAllText(ARQUIVO, jsonString);
+        }
+    private void CarregarDados()
+        {
+            if (File.Exists(ARQUIVO))
+            {
+                string jsonString = File.ReadAllText(ARQUIVO);
+                pessoas = JsonSerializer.Deserialize<List<Pessoa>>(jsonString) ?? new List<Pessoa>();
+            }
+        }
+    
     public void CadastrarPessoa()
         {
             Pessoa p = new Pessoa();
@@ -74,13 +95,13 @@ namespace SistemaCadastroPessoa.Models
             p.Email = LerEmail("Digite o seu Email: ");
 
             pessoas.Add(p);
+            SalvarDados();
             Console.WriteLine("Pessoa cadastrada com sucesso! Pressione Enter para continuar...");
             Console.ReadLine();
         }
     public void RemoverPessoa()
         {
-            Console.WriteLine("Digite o Id da Pessoa a ser removida: ");
-            int id = int.Parse(Console.ReadLine()!);
+            int id = LerInteiro("Digite o Id da Pessoa a ser removida: ");
 
             Pessoa? pessoaParaRemover = pessoas.FirstOrDefault(p => p.Id == id);
             if (pessoaParaRemover == null)
@@ -91,6 +112,7 @@ namespace SistemaCadastroPessoa.Models
             else
             {
                 pessoas.Remove(pessoaParaRemover);
+                SalvarDados();
                 Console.WriteLine("Pessoa removida com sucesso! Pressione Enter para continuar...");
                 Console.ReadLine();
             }
@@ -131,6 +153,7 @@ namespace SistemaCadastroPessoa.Models
             if (!string.IsNullOrEmpty(novoNome))
             {
                 p.Nome = novoNome;
+                SalvarDados();
             }
 
             Console.WriteLine("Digite a nova Idade (Enter para manter a atual): ");
@@ -140,6 +163,7 @@ namespace SistemaCadastroPessoa.Models
                 if (int.TryParse(entrada, out int novaIdade) && novaIdade > 0)
                 {
                     p.Idade = novaIdade;
+                    SalvarDados();
                 }
                 else
                 {
@@ -152,6 +176,7 @@ namespace SistemaCadastroPessoa.Models
             if (!string.IsNullOrEmpty(novoEmail))
             {
                 p.Email = novoEmail;
+                SalvarDados();
             }
 
             Console.WriteLine("Pessoa editada com sucesso! Pressione Enter para continuar...");
